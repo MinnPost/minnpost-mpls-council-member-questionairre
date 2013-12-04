@@ -1,0 +1,220 @@
+/**
+ * Main styles for: minnpost-mpls-council-member-questionairre
+ *
+ * Make the default styles for a 960px wide screen.  A mobile
+ * first approach is fine, but starting with a 960px wide
+ * screen means that older browsers that do not support
+ * media queries will be fine as they are all desktop browsers.
+ */
+
+body .node-unpublished {
+  background-repeat: no-repeat;
+}
+
+.interactive-container  {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
+.minnpost-mpls-council-member-questionairre-application-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 1em;
+
+  .clear {
+    clear: both;
+  }
+  .hidden {
+    display: none;
+  }
+
+  /* Clearfix from http://nicolasgallagher.com/micro-clearfix-hack/ */
+  .cf:before,
+  .cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  .cf:after {
+    clear: both;
+  }
+  .cf {
+    *zoom: 1;
+  }
+
+  .footnote {
+    font-size: .75em;
+    font-style: italic;
+    color: #414141;
+    margin-top: 3em;
+    border-top: 1px solid #BCBCBC;
+    padding-top: 1em;
+  }
+
+  .loading {
+    width: 100%;
+    text-align: center;
+    padding: 2em 2em;
+    color: #ABABAB;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 100%;
+
+    span {
+      padding: 10px 5px 10px 40px;
+      background: transparent url($loader-image) center left no-repeat;
+      vertical-align: middle;
+      height: 100%;
+      line-height: 100%;
+    }
+  }
+
+  a,
+  .link {
+    color: #0073b6;
+  }
+  .link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  h5 {
+    text-transform: none;
+    font-size: 1.25em;
+  }
+
+  .star {
+    color: #BDBDBD;
+    font-size: 1em;
+    width: 1.5em;
+    text-align: right;
+    float: right;
+  }
+
+  .star:hover {
+    color: #797979;
+    cursor: pointer;
+  }
+
+  .star.starred {
+    color: #F5BC00;
+  }
+
+  .remove-storage {
+    display: none;
+  }
+
+  .can-store .remove-storage {
+    display: inline;
+  }
+
+  .question-menu {
+    min-height: 1em;
+    display: block;
+  }
+
+  .question-menu h5 {
+    margin-bottom: 1em;
+  }
+
+  .question-menu ul {
+    margin: 0 0 2em 0;
+    padding: 0;
+  }
+
+  .question-menu ul li {
+    font-family: $sans-serif-font;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 2em;
+  }
+
+  .question-menu .starred-candidate {
+  }
+
+  .question-menu .favored-candidate {
+    font-weight: bold;
+  }
+
+  .question {
+    margin-bottom: 1em;
+  }
+
+  .question .question-title {
+    font-size: 100%;
+    font-family: $sans-serif-site-font;
+    font-weight: bold;
+  }
+
+  .question .question-text {
+    font-family: $sans-serif-font;
+    margin-bottom: 1em;
+    font-size: 1.15em;
+    line-height: 1.25em;
+  }
+
+  .answer h5 {
+    margin-bottom: 1em;
+  }
+
+  .answer .answer-inner {
+    margin-bottom: 1em;
+    border: 1px solid #BDBDBD;
+    padding: 1em;
+    min-height: 9.6em;
+  }
+
+  .answer .summary-answer {
+    font-size: .85em;
+    line-height: 1.333333em;
+  }
+
+  .answer .answer-text {
+    display: none;
+    margin: 1em;
+  }
+
+  .answer .summary-answer .read-more {
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    clear: both;
+    font-family: $sans-serif-site-font;
+  }
+
+  .answer .answer-image {
+    width: 5em;
+    margin: 0 1em .5em 0;
+    float: left;
+    padding: 0;
+  }
+
+  .answer .answer-image img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .answer .answer-inner {
+      min-height: 0;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .question-menu {
+      font-size: .75em;
+    }
+
+    .question-menu ul li {
+      line-height: 1.5em;
+    }
+  }
+
+
+}

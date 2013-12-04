@@ -1,0 +1,46 @@
+{
+  "name": "minnpost-mpls-council-member-questionairre",
+  "title": "MinnPost Minneapolis City Council Questionnaire",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "https://github.com/minnpost/minnpost-mpls-council-member-questionairre",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/minnpost/minnpost-mpls-council-member-questionairre.git"
+  },
+  "bugs": {
+    "url": "https://github.com/minnpost/minnpost-mpls-council-member-questionairre/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.2.0",
+    "grunt-contrib-jshint": "~0.4.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jst": "~0.5.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-gss-pull": "~0.1.2",
+    "grunt-s3": "~0.2.0-alpha",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-sass": "~0.3.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-mustache": "~0.1.4"
+  },
+  "author": {
+    "name": "MinnPost",
+    "email": "support@minnpost.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/MinnPost/minnpost-mpls-council-member-questionairre/blob/master/LICENSE.txt"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Alan Palazzolo",
+      "email": "apalazzolo@minnpost.com"
+    }
+  ]
+}
