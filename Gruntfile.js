@@ -107,8 +107,7 @@ module.exports = function(grunt) {
           'bower_components/underscore/underscore-min.js',
           'bower_components/backbone/backbone-min.js',
           'bower_components/ractive/build/Ractive-legacy.min.js',
-          'bower_components/ractive/plugins/adaptors/Backbone.js',
-          'bower_components/sticky-kit/jquery.sticky-kit.min.js'
+          'bower_components/ractive/plugins/adaptors/Backbone.js'
         ],
         dest: 'dist/<%= pkg.name %>.libs.js',
         options: {

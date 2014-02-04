@@ -23,6 +23,9 @@
         });
         thisApp.footnoteView = new App.prototype.FootnoteView({
           el: thisApp.$el.find('.footnote-container'),
+          data: {
+            options: thisApp.options
+          },
           template: thisApp.template('template-footnote')
         });
         thisApp.footnoteView.app = thisApp;
@@ -83,10 +86,11 @@
             data: {
               candidates: thisApp.candidates,
               questions: thisApp.questions,
-              imagePath: thisApp.options.imagePath,
-              maxStarred: thisApp.maxStarred || 0
+              maxStarred: thisApp.maxStarred || 0,
+              options: thisApp.options
             },
-            adaptors: [ 'Backbone' ]
+            adaptors: ['Backbone'],
+            app: thisApp
           });
           thisApp.candidatesView.app = thisApp;
         });
@@ -144,6 +148,11 @@
     // Check if localstorage is available
     checkCanStore: function() {
       var mod = 'modernizr';
+
+      if (this.options.enableStars === false) {
+        return false;
+      }
+
       try {
         localStorage.setItem(mod, mod);
         localStorage.removeItem(mod);
@@ -240,20 +249,29 @@
     }
   });
   App.prototype.CandidatesView = Ractive.extend({
-    init: function() {
+    init: function(options) {
       var thisView = this;
+      this.app = options.app;
 
-      // Sticky sidebar
-      this.sidebar();
+      // Stick menu
+      $(this.el).find('.question-menu-inner').mpStick({
+        activeClass: 'stuck container',
+        wrapperClass: '',
+        container: $(this.el).find('.question-menu-inner').parent().parent(),
+        topPadding: 20,
+        throttle: 100
+      });
 
       // Handle starrring
-      this.on('star', function(e) {
-        e.original.preventDefault();
-        var current = this.get(e.keypath + '.starred');
-        this.set(e.keypath + '.starred', (current) ? false : true);
-        this.app.aggregateCandidates();
-        this.app.save();
-      });
+      if (this.app.options.enableStars !== false) {
+        this.on('star', function(e) {
+          e.original.preventDefault();
+          var current = this.get(e.keypath + '.starred');
+          this.set(e.keypath + '.starred', (current) ? false : true);
+          this.app.aggregateCandidates();
+          this.app.save();
+        });
+      }
 
       // Read more
       this.on('readMore', function(e, parts) {
@@ -286,31 +304,6 @@
         e.original.preventDefault();
         var top = $(this.el).find('#question-' + id).offset().top;
         $('html, body').animate({ scrollTop: top - 15}, 750);
-      });
-    },
-
-    // Sticky sidebar
-    sidebar: function() {
-      var thisView = this;
-      var classes = 'grid-20 mobile-grid-35 tablet-grid-20';
-      this.$sidebar = $('.question-menu');
-      this.sidebarWidth = this.$sidebar.css('width');
-
-      this.$sidebar.stick_in_parent({
-        offset_top: 10
-      });
-
-      // Sticky kit forces a width which screws over a fluid design
-      this.$sidebar.on('sticky_kit:stick', function(e) {
-        thisView.$sidebar.removeClass(classes);
-        thisView.$sidebar.parent().addClass(classes);
-        thisView.$sidebar.parent().css({
-          'width': ''
-        });
-      });
-      this.$sidebar.on('sticky_kit:unstick', function(e) {
-        thisView.$sidebar.addClass(classes);
-        thisView.$sidebar.parent().removeClass(classes);
       });
     }
   });

@@ -200,19 +200,42 @@ body .node-unpublished {
     padding: 0;
   }
 
+
+  .stuck {
+    position: fixed;
+    min-height: 1em;
+    z-index: 99;
+
+    &.top {
+      background-color: #FFFFFF;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 1em;
+      border-bottom: 1px solid #454545;
+      padding: (1em * 2) 0;
+      //@include box-shadow(0px 2px 8px rgba(0, 0, 0, 0.15));
+    }
+
+    &.container {
+      top: 0
+    }
+  }
+
   @media screen and (max-width: 1024px) {
     .answer .answer-inner {
       min-height: 0;
     }
   }
 
-  @media screen and (max-width: 500px) {
-    .question-menu {
-      font-size: .75em;
+  @media screen and (max-width: 767px) {
+    .question-menu,
+    .question-menu-inner {
+      display: none;
     }
 
-    .question-menu ul li {
-      line-height: 1.5em;
+    .question {
+      margin-bottom: 3em;
     }
   }
 

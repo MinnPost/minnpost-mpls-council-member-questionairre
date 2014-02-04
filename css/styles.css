@@ -187,16 +187,34 @@ body .node-unpublished {
   margin: 0;
   padding: 0;
 }
+.minnpost-mpls-council-member-questionairre-application-container .stuck {
+  position: fixed;
+  min-height: 1em;
+  z-index: 99;
+}
+.minnpost-mpls-council-member-questionairre-application-container .stuck.top {
+  background-color: #FFFFFF;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 1em;
+  border-bottom: 1px solid #454545;
+  padding: 2em 0;
+}
+.minnpost-mpls-council-member-questionairre-application-container .stuck.container {
+  top: 0;
+}
 @media screen and (max-width: 1024px) {
   .minnpost-mpls-council-member-questionairre-application-container .answer .answer-inner {
     min-height: 0;
   }
 }
-@media screen and (max-width: 500px) {
-  .minnpost-mpls-council-member-questionairre-application-container .question-menu {
-    font-size: .75em;
+@media screen and (max-width: 767px) {
+  .minnpost-mpls-council-member-questionairre-application-container .question-menu,
+  .minnpost-mpls-council-member-questionairre-application-container .question-menu-inner {
+    display: none;
   }
-  .minnpost-mpls-council-member-questionairre-application-container .question-menu ul li {
-    line-height: 1.5em;
+  .minnpost-mpls-council-member-questionairre-application-container .question {
+    margin-bottom: 3em;
   }
 }

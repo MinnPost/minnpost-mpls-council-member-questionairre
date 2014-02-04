@@ -1,4 +1,4 @@
-<div class="question-menu grid-20 mobile-grid-35 tablet-grid-20">
+<div class="question-menu grid-20 mobile-grid-100 tablet-grid-30">
   <div class="question-menu-inner">
     <h5>Issues</h5>
 
@@ -8,17 +8,19 @@
       {{/questions}}
     </ul>
 
-    <h5>Starred</h5>
+    {{#(options.enableStars !== false)}}
+      <h5>Starred</h5>
 
-    <ul>
-      {{#candidates:c}}
-        <li class="{{ (maxStarred !== 0 && maxStarred === starred) ? 'favored-candidate' : '' }}"><span class="starred-candidate">{{ starred }}</span> &mdash; {{ candidate }}</li>
-      {{/candidates}}
-    </ul>
+      <ul>
+        {{#candidates:c}}
+          <li class="{{ (maxStarred !== 0 && maxStarred === starred) ? 'favored-candidate' : '' }}"><span class="starred-candidate">{{ starred }}</span> &mdash; {{ candidate }}</li>
+        {{/candidates}}
+      </ul>
+    {{/()}}
   </div>
 </div>
 
-<div class="candidates-questions-answers grid-80 mobile-grid-65 tablet-grid-80">
+<div class="candidates-questions-answers grid-80 mobile-grid-100 tablet-grid-70">
   {{#questions:q}}
     <div class="question grid-100 grid-parent" id="question-{{ id }}">
       <p class="question-text"><span class="question-title">{{ shortname }}:</span> {{{ question }}}</p>
@@ -26,8 +28,11 @@
       {{#answers:a}}
         <div class="answer grid-50" id="answer-{{ q }}-{{ a }}">
           <div class="answer-inner">
-            <div class="answer-image"><img src="{{ imagePath }}{{ image }}" /></div>
-            <div class="star {{ (starred) ? 'starred' : '' }}" on-tap="star:{{ q }},{{ a }}">★</div>
+            <div class="answer-image"><img src="{{ options.imagePath }}{{ image }}" /></div>
+
+            {{#(options.enableStars !== false)}}
+              <div class="star {{ (starred) ? 'starred' : '' }}" on-tap="star:{{ q }},{{ a }}">★</div>
+            {{/()}}
 
             <h5>{{ candidate }}</h5>
 
